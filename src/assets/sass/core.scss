@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  padding: 0px 2rem 0px 2rem;
+}
+
+.fd-col {
+  flex-direction: column;
+}
+
+.fd-row {
+  flex-direction: row;
+}
+
+.w-100 {
+  width: 100%;
+}
