@@ -1,4 +1,10 @@
 <mat-form-field class="w-100" appearance="fill">
   <mat-label>City Name, Country (optional)</mat-label>
-  <input matInput placeholder="Type a city name" value="" />
+  <input
+    matInput
+    placeholder="Type a city name"
+    value=""
+    #searchInput
+    (change)="onSearch(searchInput.value)"
+  />
 </mat-form-field>
