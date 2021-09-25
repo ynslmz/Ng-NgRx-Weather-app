@@ -9,6 +9,9 @@ import { CurrentWeatherViewerComponent } from "./components/current-weather-view
 import { ForecastViewerComponent } from "./components/forecast-viewer/forecast-viewer.component";
 import { StoreModule } from "@ngrx/store";
 import { weatherReducer } from "./state/weather.reducer";
+import { EffectsModule } from "@ngrx/effects";
+import { WeatherEffects } from "./state/weather.effect";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,9 +22,11 @@ import { weatherReducer } from "./state/weather.reducer";
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     WeatherRoutingModule,
     MatInputModule,
     StoreModule.forFeature("weather", weatherReducer),
+    EffectsModule.forFeature([WeatherEffects]),
   ],
 })
 export class WeatherModule {}
