@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
 import { MatInputModule } from "@angular/material/input";
 import { WeatherRoutingModule } from "./weather-routing.module";
 import { WeatherSearchComponent } from "./components/weather-search/weather-search.component";
@@ -27,6 +26,6 @@ import { HttpClientModule } from "@angular/common/http";
     MatInputModule,
     StoreModule.forFeature("weather", weatherReducer),
     EffectsModule.forFeature([WeatherEffects]),
-  ],
+  ]
 })
 export class WeatherModule {}
