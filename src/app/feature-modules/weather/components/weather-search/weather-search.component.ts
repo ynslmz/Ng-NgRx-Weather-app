@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { searchCity } from "../../state/weather.action";
+import { selectcityGeoInfos } from "../../state/weather.selector";
 
 @Component({
   selector: "swa-weather-search",
@@ -8,6 +10,7 @@ import { searchCity } from "../../state/weather.action";
   styleUrls: ["./weather-search.component.scss"],
 })
 export class WeatherSearchComponent implements OnInit {
+  cityInfos$ = this.store.select(selectcityGeoInfos);
   constructor(private store: Store) {}
 
   ngOnInit(): void {}
