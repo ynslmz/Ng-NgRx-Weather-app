@@ -5,7 +5,13 @@ import {
   searchCityFailed,
   searchCitySuccess,
 } from "./weather.action";
-import { catchError, map, mergeMap } from "rxjs/operators";
+import {
+  catchError,
+  debounceTime,
+  map,
+  mergeMap,
+  filter,
+} from "rxjs/operators";
 import { of } from "rxjs";
 import { GeoLocationService } from "src/app/shared/services/weather/geo-location.service";
 
@@ -19,6 +25,8 @@ export class WeatherEffects {
   getCityCordinates$ = createEffect(() =>
     this.actions$.pipe(
       ofType(searchCity),
+      debounceTime(300),
+      filter((action) => action.searchText.length > 2),
       mergeMap((action) =>
         this.geoLocationService
           .gerCoordinatesByCityName(action.searchText)

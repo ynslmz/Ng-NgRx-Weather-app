@@ -5,7 +5,21 @@
     placeholder="Type a city name"
     value=""
     #searchInput
-    (change)="onSearch(searchInput.value)"
+    (input)="onSearch(searchInput.value)"
   />
 </mat-form-field>
-{{ cityInfos$ | async | json }}
+<ng-container *ngIf="cityInfos$ | async as cityInfos">
+  <span *ngIf="cityInfos.length > 0">Results</span>
+  <mat-selection-list
+    [multiple]="false"
+    [(ngModel)]="selectedCity"
+    (selectionChange)="selectionChanged()"
+  >
+    <mat-list-option *ngFor="let city of cityInfos" [value]="city">
+      {{ city.name }}, {{ !!city.state ? city.state + "," : "" }}
+      {{ city.country }}
+    </mat-list-option>
+  </mat-selection-list>
+</ng-container>
+
+<pre>{{ cityInfos$ | async | json }}</pre>
