@@ -2,8 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { filter } from "rxjs/operators";
+import { GetLocationInfo } from "src/app/shared/models/weather/geo-location.model";
 import { fetchWeatherInfo, searchCity } from "../../state/weather.action";
-import { selectcityGeoInfos } from "../../state/weather.selector";
+import { selectCityGeoInfos } from "../../state/weather.selector";
 
 @Component({
   selector: "swa-weather-search",
@@ -11,8 +12,8 @@ import { selectcityGeoInfos } from "../../state/weather.selector";
   styleUrls: ["./weather-search.component.scss"],
 })
 export class WeatherSearchComponent implements OnInit {
-  cityInfos$: Observable<Array<any>> = this.store
-    .select(selectcityGeoInfos)
+  cityInfos$: Observable<Array<GetLocationInfo> | undefined> = this.store
+    .select(selectCityGeoInfos)
     .pipe(filter((dat) => dat != undefined));
 
   selectedCity: any = null;

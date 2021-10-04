@@ -11,7 +11,7 @@ export class WeatherService {
   getWeatherInfoWithCoordinates(
     lat: number,
     lon: number,
-    exclude?: string
+    exclude = "minutely,hourly"
   ): Observable<any> {
     //https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
     return this.api.get("/data/2.5/onecall", {

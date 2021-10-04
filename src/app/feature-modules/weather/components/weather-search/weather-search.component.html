@@ -9,7 +9,7 @@
   />
 </mat-form-field>
 <ng-container *ngIf="cityInfos$ | async as cityInfos">
-  <span *ngIf="cityInfos.length > 0">Results</span>
+  <p *ngIf="cityInfos.length > 0"><b>Select a location</b></p>
   <mat-selection-list
     [multiple]="false"
     [(ngModel)]="selectedCity"
@@ -21,5 +21,3 @@
     </mat-list-option>
   </mat-selection-list>
 </ng-container>
-
-<pre>{{ cityInfos$ | async | json }}</pre>

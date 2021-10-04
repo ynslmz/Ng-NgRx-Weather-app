@@ -1,14 +1,15 @@
 import { Action, createReducer, on, State } from "@ngrx/store";
 import { GetLocationInfo } from "src/app/shared/models/weather/geo-location.model";
+import { GetWeatherInfoWithCoordinates } from "src/app/shared/models/weather/weather.model";
 import * as actionsWeather from "./weather.action";
+
 export interface WeatherFeatureState {
-  cityGeoInfos: any[];
-  searchedCityText: string;
+  cityGeoInfos?: GetLocationInfo[];
+  searchedCityText?: string;
+  fetchedCityInfo?: GetWeatherInfoWithCoordinates;
+  requestedCityInfo?: GetLocationInfo;
 }
-export const initialState: WeatherFeatureState = {
-  cityGeoInfos: [],
-  searchedCityText: "",
-};
+export const initialState: WeatherFeatureState = {};
 
 const _weatherReducer = createReducer<WeatherFeatureState, Action>(
   initialState,
@@ -30,7 +31,11 @@ const _weatherReducer = createReducer<WeatherFeatureState, Action>(
   }),
 
   on(actionsWeather.fetchWeatherInfo, (state, { cityInfo }) => {
-    return { ...state, fetchedCityInfo: cityInfo };
+    return { ...state, requestedCityInfo: cityInfo };
+  }),
+
+  on(actionsWeather.fetchWeatherInfoSuccess, (state, { data }) => {
+    return { ...state, fetchedCityInfo: data };
   })
 );
 
