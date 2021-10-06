@@ -1,0 +1,12 @@
+<ng-container *ngFor="let w of weather">
+  <div style="display: flex; justify-content: center; align-items: center">
+    <img
+      src="{{ 'http://openweathermap.org/img/wn/' + w.icon + '@2x.png' }}"
+      [alt]="w.description"
+      class="weather-icon"
+    />
+    <span style="text-transform: capitalize; font-size: 0.6rem">{{
+      w.description
+    }}</span>
+  </div>
+</ng-container>

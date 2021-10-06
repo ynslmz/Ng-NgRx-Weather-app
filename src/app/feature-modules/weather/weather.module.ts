@@ -14,6 +14,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { WeatherEffects } from "./state/weather.effect";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { WeatherIconComponent } from "./components/weather-icon/weather-icon.component";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { FormsModule } from "@angular/forms";
     WeatherHomeComponent,
     CurrentWeatherViewerComponent,
     ForecastViewerComponent,
+    WeatherIconComponent,
   ],
+  exports: [],
   imports: [
     CommonModule,
     HttpClientModule,
