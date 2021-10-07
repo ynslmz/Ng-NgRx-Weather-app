@@ -1,9 +1,11 @@
 <ng-container *ngIf="weather$ | async as weather">
-  <div flex layout="row" layout-align="center center">
-    <swa-weather-icon [weather]="weather.current.weather"></swa-weather-icon>
-    <h2>
-      {{ weather.current.temp }}
-    </h2>
-  </div>
+  <mat-card>
+    <mat-card-content>
+      <swa-weather-icon [weather]="weather.current.weather"></swa-weather-icon>
+      <span style="text-align: center; font-size: 2.5rem">
+        {{ weather.current.temp }}
+      </span>
+    </mat-card-content>
+  </mat-card>
   <pre>{{ weather | json }}</pre>
 </ng-container>

@@ -15,6 +15,7 @@ import { WeatherEffects } from "./state/weather.effect";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { WeatherIconComponent } from "./components/weather-icon/weather-icon.component";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { WeatherIconComponent } from "./components/weather-icon/weather-icon.com
     MatInputModule,
     MatListModule,
     MatAutocompleteModule,
+    MatCardModule,
     StoreModule.forFeature("weather", weatherReducer),
     EffectsModule.forFeature([WeatherEffects]),
   ],

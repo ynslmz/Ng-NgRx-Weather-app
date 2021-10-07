@@ -1,23 +1,27 @@
-<mat-form-field class="w-100" appearance="fill">
-  <mat-label>City Name, Country (optional)</mat-label>
-  <input
-    matInput
-    placeholder="Type a city name"
-    value=""
-    #searchInput
-    (input)="onSearch(searchInput.value)"
-  />
-</mat-form-field>
-<ng-container *ngIf="cityInfos$ | async as cityInfos">
-  <p *ngIf="cityInfos.length > 0"><b>Select a location</b></p>
-  <mat-selection-list
-    [multiple]="false"
-    [(ngModel)]="selectedCity"
-    (selectionChange)="selectionChanged()"
-  >
-    <mat-list-option *ngFor="let city of cityInfos" [value]="city">
-      {{ city.name }}, {{ !!city.state ? city.state + "," : "" }}
-      {{ city.country }}
-    </mat-list-option>
-  </mat-selection-list>
-</ng-container>
+<mat-card>
+  <mat-card-content>
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>City Name, Country (optional)</mat-label>
+      <input
+        matInput
+        placeholder="Type a city name"
+        value=""
+        #searchInput
+        (input)="onSearch(searchInput.value)"
+      />
+    </mat-form-field>
+    <ng-container *ngIf="cityInfos$ | async as cityInfos">
+      <p *ngIf="cityInfos.length > 0"><b>Select a location</b></p>
+      <mat-selection-list
+        [multiple]="false"
+        [(ngModel)]="selectedCity"
+        (selectionChange)="selectionChanged()"
+      >
+        <mat-list-option *ngFor="let city of cityInfos" [value]="city">
+          {{ city.name }}, {{ !!city.state ? city.state + "," : "" }}
+          {{ city.country }}
+        </mat-list-option>
+      </mat-selection-list>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
