@@ -2,9 +2,9 @@
   <mat-card>
     <mat-card-content>
       <swa-weather-icon [weather]="weather.current.weather"></swa-weather-icon>
-      <span style="text-align: center; font-size: 2.5rem">
-        {{ weather.current.temp }}
-      </span>
+      <p style="text-align: center; font-size: 2.5rem">
+        {{ weather.current.temp | unit: "temperature" }}
+      </p>
     </mat-card-content>
   </mat-card>
   <pre>{{ weather | json }}</pre>

@@ -16,6 +16,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { WeatherIconComponent } from "./components/weather-icon/weather-icon.component";
 import { MatCardModule } from "@angular/material/card";
+import { SharedModule } from "src/app/shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatCardModule } from "@angular/material/card";
     CommonModule,
     HttpClientModule,
     WeatherRoutingModule,
+    SharedModule,
     FormsModule,
     MatInputModule,
     MatListModule,
