@@ -8,8 +8,11 @@ export interface WeatherFeatureState {
   searchedCityText?: string;
   fetchedCityInfo?: GetWeatherInfoWithCoordinates;
   requestedCityInfo?: GetLocationInfo;
+  unit: string;
 }
-export const initialState: WeatherFeatureState = {};
+export const initialState: WeatherFeatureState = {
+  unit: "metric",
+};
 
 const _weatherReducer = createReducer<WeatherFeatureState, Action>(
   initialState,

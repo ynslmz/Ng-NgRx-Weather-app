@@ -7,12 +7,11 @@ import { ApiService } from "../app/api.service";
 export class GeoLocationService {
   constructor(private api: ApiService) {}
 
-  gerCoordinatesByCityName(
-    cityName: string
-  ): Observable<Array<GetLocationInfo>> {
-    return this.api.get<Array<GetLocationInfo>>("geo/1.0/direct", {
-      q: cityName,
-      limit: 10,
-    });
+  gerCoordinatesByCityName(obj: {
+    q: string;
+    units?: string;
+    limit?: 5;
+  }): Observable<Array<GetLocationInfo>> {
+    return this.api.get<Array<GetLocationInfo>>("geo/1.0/direct", obj);
   }
 }

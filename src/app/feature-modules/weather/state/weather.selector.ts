@@ -12,3 +12,8 @@ export const selectCityWeatherInformation = createSelector(
   selectFeature,
   (state: WeatherFeatureState) => state.fetchedCityInfo
 );
+
+export const selectUnits = createSelector(
+  selectFeature,
+  (state: WeatherFeatureState) => state.unit
+);
