@@ -10,7 +10,7 @@ export class GeoLocationService {
   gerCoordinatesByCityName(obj: {
     q: string;
     units?: string;
-    limit?: 5;
+    limit?: number;
   }): Observable<Array<GetLocationInfo>> {
     return this.api.get<Array<GetLocationInfo>>("geo/1.0/direct", obj);
   }

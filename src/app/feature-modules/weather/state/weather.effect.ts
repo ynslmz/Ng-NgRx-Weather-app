@@ -49,7 +49,11 @@ export class WeatherEffects implements OnDestroy {
       filter((action) => action.searchText.length > 2),
       mergeMap((action) =>
         this.geoLocationService
-          .gerCoordinatesByCityName({ q: action.searchText, units: this.units })
+          .gerCoordinatesByCityName({
+            q: action.searchText,
+            units: this.units,
+            limit: 5,
+          })
           .pipe(
             map(
               (data) => searchCitySuccess({ data }),
