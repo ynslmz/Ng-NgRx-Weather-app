@@ -56,6 +56,6 @@ export class UnitPipe implements PipeTransform {
         unitText = "";
         break;
     }
-    return Math.round(Number(value)) + unitText;
+    return Math.round(Number(value)) + " " + unitText;
   }
 }
