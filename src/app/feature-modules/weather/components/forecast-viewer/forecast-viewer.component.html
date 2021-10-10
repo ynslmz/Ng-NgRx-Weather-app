@@ -1,4 +1,7 @@
-<div class="container" *ngFor="let item of forecast; trackBy: trackBy">
+<div
+  class="container"
+  *ngFor="let item of forecast | slice: 0:5; trackBy: trackBy"
+>
   <div>{{ item.dt * 1000 | date: "dd/MM" }}</div>
   <div>
     <swa-weather-icon [weather]="item.weather"></swa-weather-icon>

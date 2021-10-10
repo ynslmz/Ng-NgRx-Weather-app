@@ -13,6 +13,9 @@
       <p style="text-align: center">
         Wind : {{ weather.current.wind_speed | unit: "windSpeed" }}
       </p>
+      <swa-forecast-hourly-view
+        [forecast]="weather.hourly"
+      ></swa-forecast-hourly-view>
       <swa-forecast-viewer [forecast]="weather.daily"></swa-forecast-viewer>
     </mat-card-content>
   </mat-card>

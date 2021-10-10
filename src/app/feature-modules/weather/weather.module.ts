@@ -17,6 +17,7 @@ import { FormsModule } from "@angular/forms";
 import { WeatherIconComponent } from "./components/weather-icon/weather-icon.component";
 import { MatCardModule } from "@angular/material/card";
 import { SharedModule } from "src/app/shared/shared.module";
+import { ForecastHourlyViewComponent } from './components/forecast-hourly-view/forecast-hourly-view.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SharedModule } from "src/app/shared/shared.module";
     CurrentWeatherViewerComponent,
     ForecastViewerComponent,
     WeatherIconComponent,
+    ForecastHourlyViewComponent,
   ],
   exports: [],
   imports: [
