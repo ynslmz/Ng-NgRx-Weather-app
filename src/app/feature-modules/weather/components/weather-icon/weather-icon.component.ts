@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { Weather } from "src/app/shared/models/weather/weather.model";
+import { WeatherModels } from "src/app/shared/models/weather/weather.model";
 
 @Component({
   selector: "swa-weather-icon",
@@ -7,7 +7,7 @@ import { Weather } from "src/app/shared/models/weather/weather.model";
   styleUrls: ["./weather-icon.component.scss"],
 })
 export class WeatherIconComponent implements OnInit {
-  @Input() weather!: Weather[];
+  @Input() weather!: WeatherModels.Weather[];
   constructor() {}
 
   ngOnInit(): void {}

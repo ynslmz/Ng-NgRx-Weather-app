@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { GetLocationInfo } from "src/app/shared/models/weather/geo-location.model";
-import { GetWeatherInfoWithCoordinates } from "src/app/shared/models/weather/weather.model";
+import { WeatherModels } from "src/app/shared/models/weather/weather.model";
 
 export const searchCity = createAction(
   "[Weather Search Component] Search",
@@ -24,7 +24,7 @@ export const fetchWeatherInfo = createAction(
 
 export const fetchWeatherInfoSuccess = createAction(
   "[Weather Search Component] Select City to Fetch Weather Info Loaded Successfully",
-  props<{ data: GetWeatherInfoWithCoordinates }>()
+  props<{ data: WeatherModels.GetWeatherInfoWithCoordinates }>()
 );
 
 export const fetchWeatherInfoFailed = createAction(
