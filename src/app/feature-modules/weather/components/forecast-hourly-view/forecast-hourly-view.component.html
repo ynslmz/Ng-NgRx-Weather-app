@@ -1,6 +1,15 @@
-<div class="hourlyContainer" *ngFor="let item of forecast | slice: 0:5">
+<div class="container">
+  <h2>Hourly</h2>
+  <div class="container">
+    <mat-slider min="1" max="50" step="1" [(ngModel)]="slice"></mat-slider>
+    <span matSort (matSortChange)="sortData($event)">
+      <span mat-sort-header>Sort</span>
+    </span>
+  </div>
+</div>
+<div class="container" *ngFor="let item of forecast | slice: 0:slice">
   <span>
-    {{ item.dt * 1000 | date: "HH.mm" }}
+    {{ item.dt * 1000 | date: "dd.MM HH.mm" }}
   </span>
   <span><swa-weather-icon [weather]="item.weather"></swa-weather-icon></span>
   <span>{{ item.temp | unit: "temperature" }}</span>

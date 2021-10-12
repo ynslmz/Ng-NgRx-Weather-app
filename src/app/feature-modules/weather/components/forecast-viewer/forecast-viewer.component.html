@@ -1,6 +1,30 @@
+<div class="container">
+  <h2>Daily</h2>
+  <div class="container">
+    <mat-slider min="1" max="8" step="1" [(ngModel)]="slice"></mat-slider>
+    <span>
+      Asc
+      <input
+        type="radio"
+        name="sortOrder"
+        id=""
+        value="asc"
+        [(ngModel)]="sortOrder"
+    /></span>
+    <span
+      >Desc
+      <input
+        type="radio"
+        name="sortOrder"
+        id=""
+        value="desc"
+        [(ngModel)]="sortOrder"
+    /></span>
+  </div>
+</div>
 <div
-  class="container"
-  *ngFor="let item of forecast | slice: 0:5; trackBy: trackBy"
+  class="container item"
+  *ngFor="let item of forecast | slice: 0:slice; trackBy: trackBy"
 >
   <div>{{ item.dt * 1000 | date: "dd/MM" }}</div>
   <div>

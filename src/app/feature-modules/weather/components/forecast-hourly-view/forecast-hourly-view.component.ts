@@ -9,7 +9,13 @@ import { WeatherModels } from "src/app/shared/models/weather/weather.model";
 export class ForecastHourlyViewComponent implements OnInit {
   @Input() forecast!: WeatherModels.Hourly[];
 
+  slice: number = 5;
+  sortOrder: string = "asc";
+
   constructor() {}
 
   ngOnInit(): void {}
+  sortData(e: any) {
+    console.log(e);
+  }
 }

@@ -8,6 +8,8 @@ import { WeatherModels } from "src/app/shared/models/weather/weather.model";
 })
 export class ForecastViewerComponent implements OnInit {
   @Input() forecast!: WeatherModels.Daily[];
+  slice: number = 5;
+  sortOrder: string = "asc";
 
   constructor() {}
 

@@ -3,6 +3,8 @@ import { CommonModule } from "@angular/common";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from "@angular/material/list";
+import { MatSliderModule } from "@angular/material/slider";
+import { MatSortModule } from "@angular/material/sort";
 import { WeatherRoutingModule } from "./weather-routing.module";
 import { WeatherSearchComponent } from "./components/weather-search/weather-search.component";
 import { WeatherHomeComponent } from "./pages/weather-home/weather-home.component";
@@ -17,7 +19,7 @@ import { FormsModule } from "@angular/forms";
 import { WeatherIconComponent } from "./components/weather-icon/weather-icon.component";
 import { MatCardModule } from "@angular/material/card";
 import { SharedModule } from "src/app/shared/shared.module";
-import { ForecastHourlyViewComponent } from './components/forecast-hourly-view/forecast-hourly-view.component';
+import { ForecastHourlyViewComponent } from "./components/forecast-hourly-view/forecast-hourly-view.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ForecastHourlyViewComponent } from './components/forecast-hourly-view/f
     MatInputModule,
     MatListModule,
     MatAutocompleteModule,
+    MatSliderModule,
     MatCardModule,
+    MatSortModule,
     StoreModule.forFeature("weather", weatherReducer),
     EffectsModule.forFeature([WeatherEffects]),
   ],
