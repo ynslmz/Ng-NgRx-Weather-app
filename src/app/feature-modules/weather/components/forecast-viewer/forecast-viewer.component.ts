@@ -21,6 +21,6 @@ export class ForecastViewerComponent implements OnInit {
   }
 
   sortData(e: any) {
-    this.store.dispatch(sortDailyForecastData(e));
+    this.store.dispatch(sortDailyForecastData({ data: e }));
   }
 }

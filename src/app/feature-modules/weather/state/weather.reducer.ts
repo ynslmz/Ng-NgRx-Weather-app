@@ -6,7 +6,7 @@ import * as actionsWeather from "./weather.action";
 export interface WeatherFeatureState {
   cityGeoInfos?: GetLocationInfo[];
   searchedCityText?: string;
-  fetchedCityInfo?: WeatherModels.GetWeatherInfoWithCoordinates;
+  fetchedCityInfo: WeatherModels.GetWeatherInfoWithCoordinates;
   requestedCityInfo?: GetLocationInfo;
   unit: string;
 }
@@ -1374,6 +1374,36 @@ const _weatherReducer = createReducer<WeatherFeatureState, Action>(
 
   on(actionsWeather.fetchWeatherInfoSuccess, (state, { data }) => {
     return { ...state, fetchedCityInfo: data };
+  }),
+
+  on(actionsWeather.sortDailyForecastData, (state, { data }) => {
+    let direction = data.direction == "asc" ? 1 : -1;
+    let newDaily = [...state.fetchedCityInfo.daily];
+    newDaily = newDaily.sort((a, b) => {
+      return (a.dt - b.dt) * direction;
+    });
+    return {
+      ...state,
+      fetchedCityInfo: {
+        ...state.fetchedCityInfo,
+        daily: [...newDaily],
+      },
+    };
+  }),
+
+  on(actionsWeather.sortHourlyForecastData, (state, { data }) => {
+    let direction = data.direction == "asc" ? 1 : -1;
+    let newHourly = [...state.fetchedCityInfo.hourly];
+    newHourly = newHourly.sort((a, b) => {
+      return (a.dt - b.dt) * direction;
+    });
+    return {
+      ...state,
+      fetchedCityInfo: {
+        ...state.fetchedCityInfo,
+        hourly: [...newHourly],
+      },
+    };
   })
 );
 

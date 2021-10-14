@@ -16,6 +16,6 @@ export class ForecastHourlyViewComponent implements OnInit {
 
   ngOnInit(): void {}
   sortData(e: any) {
-    this.store.dispatch(sortHourlyForecastData(e));
+    this.store.dispatch(sortHourlyForecastData({ data: e }));
   }
 }
