@@ -19,6 +19,9 @@
   <div>
     <swa-weather-icon [weather]="item.weather"></swa-weather-icon>
   </div>
-  <div>Temperature : {{ item.temp.day | unit: "temperature" }}</div>
+  <div>
+    Temp : {{ item.temp.max | unit: "temperature" }} /
+    {{ item.temp.min | unit: "temperature" }}
+  </div>
   <div>Wind : {{ item.wind_speed | unit: "windSpeed" }}</div>
 </div>
