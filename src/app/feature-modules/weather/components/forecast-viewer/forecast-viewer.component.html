@@ -1,14 +1,14 @@
 <div class="container">
-  <h2>Daily</h2>
+  <h2 class="title">Daily</h2>
   <div class="container">
     <mat-slider min="1" max="8" step="1" [(ngModel)]="slice"></mat-slider>
     <span
       matSort
       [matSortDisableClear]="true"
       (matSortChange)="sortData($event)"
+      mat-sort-header="sortDate"
+      >Sort</span
     >
-      <span mat-sort-header="sortDate">Sort</span>
-    </span>
   </div>
 </div>
 <div
