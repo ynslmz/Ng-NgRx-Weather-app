@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
 import { WeatherModels } from "src/app/shared/models/weather/weather.model";
+import { sortHourlyForecastData } from "../../state/weather.action";
 
 @Component({
   selector: "swa-forecast-hourly-view",
@@ -8,14 +10,12 @@ import { WeatherModels } from "src/app/shared/models/weather/weather.model";
 })
 export class ForecastHourlyViewComponent implements OnInit {
   @Input() forecast!: WeatherModels.Hourly[];
-
   slice: number = 5;
-  sortOrder: string = "asc";
 
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {}
   sortData(e: any) {
-    console.log(e);
+    this.store.dispatch(sortHourlyForecastData(e));
   }
 }

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
 import { WeatherModels } from "src/app/shared/models/weather/weather.model";
+import { sortDailyForecastData } from "../../state/weather.action";
 
 @Component({
   selector: "swa-forecast-viewer",
@@ -9,13 +11,16 @@ import { WeatherModels } from "src/app/shared/models/weather/weather.model";
 export class ForecastViewerComponent implements OnInit {
   @Input() forecast!: WeatherModels.Daily[];
   slice: number = 5;
-  sortOrder: string = "asc";
 
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {}
 
-  trackBy(index: number, name: WeatherModels.Daily): number {
-    return name.dt;
+  trackBy(index: number, obj: WeatherModels.Daily): number {
+    return obj.dt;
+  }
+
+  sortData(e: any) {
+    this.store.dispatch(sortDailyForecastData(e));
   }
 }
