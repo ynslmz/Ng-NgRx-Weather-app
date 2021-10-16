@@ -85,10 +85,11 @@ export module WeatherModels {
   }
 
   export interface GetWeatherInfoWithCoordinates {
-    lat: number;
-    lon: number;
-    timezone: string;
-    timezone_offset: number;
+    lat?: number;
+    lon?: number;
+    timezone?: string;
+    timezone_offset?: number;
+    cityName: string;
     current: Current;
     hourly: Hourly[];
     daily: Daily[];

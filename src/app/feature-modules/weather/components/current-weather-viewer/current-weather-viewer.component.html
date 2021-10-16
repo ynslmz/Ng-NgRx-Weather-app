@@ -1,6 +1,7 @@
 <ng-container *ngIf="weather$ | async as weather">
   <mat-card>
     <mat-card-content>
+      <h3 style="text-align: center">{{ weather.cityName }}</h3>
       <p style="text-align: center">
         <swa-weather-icon
           [weather]="weather.current.weather"
@@ -13,6 +14,8 @@
       <p style="text-align: center">
         Wind : {{ weather.current.wind_speed | unit: "windSpeed" }}
       </p>
+    </mat-card-content>
+    <mat-card-content>
       <swa-forecast-hourly-view
         [forecast]="weather.hourly"
       ></swa-forecast-hourly-view>

@@ -76,7 +76,11 @@ export class WeatherEffects implements OnDestroy {
             exclude: "minutely",
           })
           .pipe(
-            map((data) => fetchWeatherInfoSuccess({ data: data })),
+            map((data) =>
+              fetchWeatherInfoSuccess({
+                data: { ...data, cityName: action.cityInfo.name },
+              })
+            ),
             catchError((error) => of(fetchWeatherInfoFailed({ error })))
           )
       )
