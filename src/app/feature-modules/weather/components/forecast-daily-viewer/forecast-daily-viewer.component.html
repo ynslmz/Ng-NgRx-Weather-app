@@ -3,6 +3,7 @@
   <div class="container">
     <mat-slider min="1" max="8" step="1" [(ngModel)]="slice"></mat-slider>
     <span
+      class="p-1"
       matSort
       [matSortDisableClear]="true"
       (matSortChange)="sortData($event)"

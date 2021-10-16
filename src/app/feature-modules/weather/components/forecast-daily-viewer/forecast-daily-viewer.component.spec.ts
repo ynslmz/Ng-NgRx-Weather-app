@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ForecastViewerComponent } from './forecast-viewer.component';
+import { ForecastViewerComponent } from "./forecast-daily-viewer.component";
 
-describe('ForecastViewerComponent', () => {
+describe("ForecastViewerComponent", () => {
   let component: ForecastViewerComponent;
   let fixture: ComponentFixture<ForecastViewerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForecastViewerComponent ]
-    })
-    .compileComponents();
+      declarations: [ForecastViewerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ForecastViewerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

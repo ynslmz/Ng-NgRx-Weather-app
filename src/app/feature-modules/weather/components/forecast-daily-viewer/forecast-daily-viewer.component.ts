@@ -4,9 +4,9 @@ import { WeatherModels } from "src/app/shared/models/weather/weather.model";
 import { sortDailyForecastData } from "../../state/weather.action";
 
 @Component({
-  selector: "swa-forecast-viewer",
-  templateUrl: "./forecast-viewer.component.html",
-  styleUrls: ["./forecast-viewer.component.scss"],
+  selector: "swa-forecast-daily-viewer",
+  templateUrl: "./forecast-daily-viewer.component.html",
+  styleUrls: ["./forecast-daily-viewer.component.scss"],
 })
 export class ForecastViewerComponent implements OnInit {
   @Input() forecast!: WeatherModels.Daily[];

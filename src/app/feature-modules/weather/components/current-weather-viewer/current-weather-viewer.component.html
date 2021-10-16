@@ -1,26 +1,24 @@
 <ng-container *ngIf="weather$ | async as weather">
   <mat-card>
     <mat-card-content>
-      <h3 style="text-align: center">{{ weather.cityName }}</h3>
-      <p style="text-align: center">
+      <div class="d-flex fd-col jc-center ai-center">
+        <h3 class="text-center">{{ weather.cityName }}</h3>
         <swa-weather-icon
           [weather]="weather.current.weather"
         ></swa-weather-icon>
-      </p>
-
-      <p style="text-align: center; font-size: 2.5rem; line-height: 3rem">
-        {{ weather.current.temp | unit: "temperature" }}
-      </p>
-      <p style="text-align: center">
-        Wind : {{ weather.current.wind_speed | unit: "windSpeed" }}
-      </p>
+        <span class="temperature-text">
+          {{ weather.current.temp | unit: "temperature" }}
+        </span>
+        <span>Wind : {{ weather.current.wind_speed | unit: "windSpeed" }}</span>
+      </div>
     </mat-card-content>
     <mat-card-content>
       <swa-forecast-hourly-view
         [forecast]="weather.hourly"
       ></swa-forecast-hourly-view>
-      <swa-forecast-viewer [forecast]="weather.daily"></swa-forecast-viewer>
+      <swa-forecast-daily-viewer
+        [forecast]="weather.daily"
+      ></swa-forecast-daily-viewer>
     </mat-card-content>
   </mat-card>
-  <!-- <pre>{{ weather | json }}</pre> -->
 </ng-container>
