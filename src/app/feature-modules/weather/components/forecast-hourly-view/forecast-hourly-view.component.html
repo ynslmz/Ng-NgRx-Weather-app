@@ -1,9 +1,9 @@
-<div class="container">
+<div class="d-flex jc-space-between ai-center">
   <h2 class="title">Hourly</h2>
-  <div class="container">
+  <div class="d-flex jc-end ai-center">
     <mat-slider min="1" max="25" step="1" [(ngModel)]="slice"></mat-slider>
     <span
-      class="p-1"
+      class="p-05 pr-0"
       matSort
       [matSortDisableClear]="true"
       (matSortChange)="sortData($event)"
@@ -12,12 +12,20 @@
     </span>
   </div>
 </div>
-<div class="container" *ngFor="let item of forecast | slice: 0:slice">
+<div class="d-flex jc-space-between ai-center">
+  <span>Date</span>
+  <span>Icon</span>
+  <span>Temp</span>
+  <span>Wind</span>
+</div>
+<div
+  class="d-flex jc-space-between ai-center"
+  *ngFor="let item of forecast | slice: 0:slice"
+>
   <span>
-    {{ item.dt * 1000 | date: "dd.MM HH.mm" }}
+    {{ item.dt * 1000 | date: "HH:mm" }}
   </span>
   <span><swa-weather-icon [weather]="item.weather"></swa-weather-icon></span>
   <span>{{ item.temp | unit: "temperature" }}</span>
   <span>{{ item.wind_speed | unit: "windSpeed" }}</span>
-  <span>{{ item.humidity }} %</span>
 </div>

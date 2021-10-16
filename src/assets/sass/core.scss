@@ -27,7 +27,7 @@ body,
   padding: 1rem;
   margin: 0 auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
 }
 
 .link {
@@ -47,12 +47,19 @@ body,
   justify-content: start;
 }
 
+.jc-end {
+  justify-content: end;
+}
+
 .ai-center {
   align-items: center;
 }
 
 .ai-start {
   align-items: start;
+}
+.ai-end {
+  align-items: end;
 }
 
 .ai-space-between {
@@ -65,6 +72,10 @@ body,
 
 .fd-row {
   flex-direction: row;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
 }
 
 .w-100 {
@@ -83,6 +94,14 @@ body,
   padding: 1rem;
 }
 
+.p-05 {
+  padding: 0.5rem;
+}
+
+.pr-0 {
+  padding-right: 0;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -91,11 +110,11 @@ body,
   text-align: center;
 }
 
-.item {
-  margin: 0.2rem;
-}
-
 .weather-icon {
   height: 3rem;
   padding: 0.1rem;
+}
+
+.title {
+  margin: 0 !important;
 }

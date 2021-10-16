@@ -1,9 +1,9 @@
-<div class="container">
+<div class="d-flex jc-space-between ai-center">
   <h2 class="title">Daily</h2>
-  <div class="container">
+  <div class="d-flex jc-end ai-center">
     <mat-slider min="1" max="8" step="1" [(ngModel)]="slice"></mat-slider>
     <span
-      class="p-1"
+      class="p-05 pr-0"
       matSort
       [matSortDisableClear]="true"
       (matSortChange)="sortData($event)"
@@ -12,17 +12,18 @@
     >
   </div>
 </div>
-<div
-  class="container item"
-  *ngFor="let item of forecast | slice: 0:slice; trackBy: trackBy"
->
-  <div>{{ item.dt * 1000 | date: "dd/MM" }}</div>
-  <div>
+<div class="d-flex jc-start ai-center f-wrap">
+  <div
+    class="d-flex jc-space-between ai-center fd-col p-05"
+    *ngFor="let item of forecast | slice: 0:slice; trackBy: trackBy"
+  >
     <swa-weather-icon [weather]="item.weather"></swa-weather-icon>
+    <span>
+      {{ item.temp.max | unit: "temperature" }} /
+      {{ item.temp.min | unit: "temperature" }}
+    </span>
+    <span>{{ item.wind_speed | unit: "windSpeed" }}</span>
+    <span>{{ item.dt * 1000 | date: "EEEE" }}</span>
+    <span>{{ item.dt * 1000 | date: "MMM d" }}</span>
   </div>
-  <div>
-    Temp : {{ item.temp.max | unit: "temperature" }} /
-    {{ item.temp.min | unit: "temperature" }}
-  </div>
-  <div>Wind : {{ item.wind_speed | unit: "windSpeed" }}</div>
 </div>
