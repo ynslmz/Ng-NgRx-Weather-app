@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { WeatherModels } from "../../models/weather/weather.model";
 import { ApiService } from "../app/api.service";
 
 @Injectable({
@@ -13,7 +14,7 @@ export class WeatherService {
     lon: number;
     units?: string;
     exclude?: string;
-  }): Observable<any> {
+  }): Observable<WeatherModels.GetWeatherInfoWithCoordinates> {
     return this.api.get("/data/2.5/onecall", reqObj);
   }
 }

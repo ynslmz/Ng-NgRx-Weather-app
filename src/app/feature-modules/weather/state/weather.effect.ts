@@ -20,6 +20,7 @@ import { GeoLocationService } from "src/app/shared/services/weather/geo-location
 import { WeatherService } from "src/app/shared/services/weather/weather.service";
 import { Store } from "@ngrx/store";
 import { selectUnits } from "./weather.selector";
+import { WeatherModels } from "src/app/shared/models/weather/weather.model";
 
 @Injectable()
 export class WeatherEffects implements OnDestroy {
@@ -76,9 +77,14 @@ export class WeatherEffects implements OnDestroy {
             exclude: "minutely",
           })
           .pipe(
-            map((data) =>
+            map((data: WeatherModels.GetWeatherInfoWithCoordinates) =>
               fetchWeatherInfoSuccess({
-                data: { ...data, cityName: action.cityInfo.name },
+                data: {
+                  ...data,
+                  hourly: [...data.hourly.slice(0, 25)],
+                  daily: [...data.daily.slice(0, 8)],
+                  cityName: action.cityInfo.name,
+                },
               })
             ),
             catchError((error) => of(fetchWeatherInfoFailed({ error })))
