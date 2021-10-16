@@ -17,15 +17,18 @@ export class WeatherSearchComponent implements OnInit {
     .pipe(filter((dat) => dat != undefined));
 
   selectedCity: any = null;
+  resultListVisibility: boolean = false;
   constructor(private store: Store) {}
 
   ngOnInit(): void {}
 
   onSearch(searchText: string) {
+    this.resultListVisibility = true;
     this.store.dispatch(searchCity({ searchText: searchText }));
   }
 
   selectionChanged() {
+    this.resultListVisibility = false;
     this.store.dispatch(fetchWeatherInfo({ cityInfo: this.selectedCity[0] }));
   }
 }

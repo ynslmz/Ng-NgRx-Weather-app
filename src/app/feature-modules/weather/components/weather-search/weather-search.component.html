@@ -10,7 +10,10 @@
         (input)="onSearch(searchInput.value)"
       />
     </mat-form-field>
-    <ng-container *ngIf="cityInfos$ | async as cityInfos">
+    <div
+      *ngIf="cityInfos$ | async as cityInfos"
+      [ngClass]="{ 'd-none': !resultListVisibility }"
+    >
       <p *ngIf="cityInfos.length > 0"><b>Select a location</b></p>
       <mat-selection-list
         [multiple]="false"
@@ -22,6 +25,6 @@
           {{ city.country }}
         </mat-list-option>
       </mat-selection-list>
-    </ng-container>
+    </div>
   </mat-card-content>
 </mat-card>
