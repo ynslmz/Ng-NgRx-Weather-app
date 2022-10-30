@@ -1,0 +1,33 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
+name: Deploy to github pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-gh-pages:
+    name: Deploy to gh-pages
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js for use with actions
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - name: Clean install dependencies
+        run: npm ci
+
+      - name: Set configs
+        run: git config user.name "ynslmz" && git config user.email "yns4832@gmail.com"
+
+      - name: Build
+        run: npm run build
