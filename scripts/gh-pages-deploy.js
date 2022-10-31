@@ -4,7 +4,7 @@ import { execa } from 'execa';
   try {
     await execa('git', ['checkout', '--orphan', 'gh-pages']);
     console.log('build started!');
-    await execa('npm', ['run', 'build']);
+    await execa('npm', ['run', 'build:gh']);
     console.log('build finished!');
     const folderName = 'docs';
     await execa('git', ['--work-tree', folderName, 'add', '--all']);
